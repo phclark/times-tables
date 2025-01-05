@@ -89,8 +89,7 @@ export default function Home() {
           <div className="overflow-x-auto max-md:w-full">
             <table
               className="border-collapse border border-gray-400 w-full
-              rounded-lg
-              overflow-hidden
+              rounded-lg overflow-hidden
               no-first-row-col-borders"
             >
               <thead>

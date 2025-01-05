@@ -94,6 +94,10 @@ body {
     .print-table th {
         background-color: #f2f2f2;
     }
+
+    .rounded-lg {
+        border-radius: 0 !important;
+    }
 }
 
 @layer utilities {
