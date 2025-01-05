@@ -3,19 +3,56 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------------------------------------------
+   Custom placeholder styling in light & dark
+--------------------------------------------- */
+@layer base {
+    /* Base placeholder (light mode) */
+    ::-webkit-input-placeholder {
+        color: #9ca3af; /* Tailwind's gray-400 */
+    }
+    :-ms-input-placeholder {
+        color: #9ca3af;
+    }
+    ::-ms-input-placeholder {
+        color: #9ca3af;
+    }
+    ::placeholder {
+        color: #9ca3af;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    @layer base {
+        /* Dark mode placeholder */
+        ::-webkit-input-placeholder {
+            color: #6b7280; /* Tailwind's gray-500 */
+        }
+        :-ms-input-placeholder {
+            color: #6b7280;
+        }
+        ::-ms-input-placeholder {
+            color: #6b7280;
+        }
+        ::placeholder {
+            color: #6b7280;
+        }
+    }
 }
