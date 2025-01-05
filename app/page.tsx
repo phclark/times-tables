@@ -24,10 +24,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 items-center">
         <h1 className="text-2xl font-bold">Multiplication Table Generator</h1>
-        <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-col md:flex-row gap-4 items-center">
           <input
             type="number"
             value={number}
@@ -78,38 +78,40 @@ export default function Home() {
           </button>
         </div>
         {table.length > 0 && (
-          <table className="border-collapse border border-gray-400 mt-8">
-            <thead>
-              <tr>
-                <th className="border border-gray-400 p-2 text-center"></th>
-                {[...Array(columns).keys()].map((i) => (
-                  <th
-                    key={i}
-                    className="border border-gray-400 p-2 text-center"
-                  >
-                    {i + 1}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {table.map((row, rowIndex) => (
-                <tr key={rowIndex}>
-                  <td className="border border-gray-400 p-2 text-center">
-                    {rowIndex + 1}
-                  </td>
-                  {row.map((cell, cellIndex) => (
-                    <td
-                      key={cellIndex}
+          <div className="overflow-x-auto max-md:w-full">
+            <table className="border-collapse border border-gray-400 w-full">
+              <thead>
+                <tr>
+                  <th className="border border-gray-400 p-2 text-center"></th>
+                  {[...Array(columns).keys()].map((i) => (
+                    <th
+                      key={i}
                       className="border border-gray-400 p-2 text-center"
                     >
-                      {cell}
-                    </td>
+                      {i + 1}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {table.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    <td className="border border-gray-400 p-2 text-center">
+                      {rowIndex + 1}
+                    </td>
+                    {row.map((cell, cellIndex) => (
+                      <td
+                        key={cellIndex}
+                        className="border border-gray-400 p-2 text-center"
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </main>
     </div>
