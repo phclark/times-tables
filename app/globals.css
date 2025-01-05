@@ -37,6 +37,10 @@ body {
     ::placeholder {
         color: #9ca3af;
     }
+
+    .print-only {
+        display: none;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,6 +57,57 @@ body {
         }
         ::placeholder {
             color: #6b7280;
+        }
+        .print-only {
+            display: none;
+        }
+    }
+}
+
+/* Print-specific styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .no-print {
+        display: none;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    .print-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .print-table th,
+    .print-table td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .print-table th {
+        background-color: #f2f2f2;
+    }
+}
+
+@layer utilities {
+    .no-first-row-col-borders {
+        /* Remove top border on first row */
+        > thead > tr > th,
+        > tbody > tr:first-child > td {
+            @apply border-t-0;
+        }
+
+        /* Remove left border on first column */
+        > tbody > tr > th:first-child,
+        > tbody > tr > td:first-child {
+            @apply border-l-0;
         }
     }
 }
